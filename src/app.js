@@ -3,8 +3,6 @@ import "bootstrap";
 import "./style.css";
 
 window.onload = function() {
-  document.getElementById("excuse").innerHTML = armarExcusa();
-
   function armarExcusa() {
     let who = ["The dog", "My grandma", "The mailman", "My bird"];
     let action = ["ate", "peed", "crushed", "broke"];
@@ -22,18 +20,24 @@ window.onload = function() {
     let randomWhat = Math.floor(Math.random() * what.length);
     let randomWhen = Math.floor(Math.random() * when.length);
 
-    return (
+    document.getElementById("excuse").innerHTML =
       who[randomWho] +
       " " +
       action[randomAction] +
       " " +
       what[randomWhat] +
       " " +
-      when[randomWhen]
-    );
+      when[randomWhen];
   }
+
+  armarExcusa();
+
+  setInterval(armarExcusa, 3000);
+
   let refresh = document.getElementById("refresh");
   refresh.addEventListener("click", _ => {
-    location.reload();
+    //location.reload();
+    armarExcusa();
+    git;
   });
 };
